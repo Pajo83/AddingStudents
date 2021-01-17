@@ -1,0 +1,50 @@
+﻿@page
+@model AddingStudents.AddStudentModel
+@{
+    ViewData["Title"] = "AddStudent";
+}
+
+<h1>AddStudent</h1>
+
+<form method="post">
+    <div class="row">
+        <div class="col-6">
+            <div class="col-12">
+                <span class="text-danger">
+                    @Model.errorMessage
+                </span>
+            </div>
+            <div class="col-12">
+                <span class="text-success">
+                    @Model.successMessage
+                </span>
+            </div>
+            <div class="col-12">
+                <label>Full Name</label>
+                <div class="clearfix"></div>
+                <input type="text" name="FullName" required asp-for="Student.FullName" />
+            </div>
+            <div class="col-12">
+                <label>Mobile Phone (07xxxxxxx)</label>
+                <div class="clearfix"></div>
+                <input type="text" name="MobilePhone" required asp-for="Student.MobilePhone" />
+            </div>
+            <div class="col-12">
+                <label>Email</label>
+                <div class="clearfix"></div>
+                <input type="text" name="Email" required asp-for="Student.Email" />
+            </div>
+            <div class="col-12">
+                <label>Student Number</label>
+                <div class="clearfix"></div>
+                <input type="text" name="StudentNo" required asp-for="Student.StudentNo" />
+            </div>
+            <div class="col-12">
+                <select class="form-control" multiple="multiple" asp-for="SelectedSubjectList" asp-items="Model.SubjectsList"></select>
+            </div>
+            <div class="col-4">
+                <input type="submit" name="submit" class="btn btn-success" value="Add Student" />
+            </div>
+        </div>
+    </div>
+</form>
